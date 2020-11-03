@@ -1,37 +1,128 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/sudhakarmu/navigation/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sudhakarmu/navigation/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<html>
+<title>side navigation</title>
+<style>
+.{
+margin:0;
+padding:0;
+list-style:none;
+box-sizing:border-box;
+font-family:'montserrat',sans-serif;
+}
+body{
+display:flex;
+height:100vh;
+}
+nav{
+position:fixed;
+width:320px;
+height:100%;
+left:-320px;
+overflow:hidden;
+background:#d3e1ff4f;
+transition:.4s;
+}
+nav .brand{
+position:absolute;
+color:#2B4C8C;
+font-size:28px;
+font-weight:600;
+margin:32px 40px;
+}
+nav label{
+position:absolute;
+right:50px;
+top:35px;
+padding:5px 8px;
+color:#2B4C8C;
+font-size:16px;
+border:2px solid;
+border-radius:50%;
+cursor:pointer;
+transition:.4s;
+}
+nav label:hover{
+background:#2B4C8C;
+color:#fff;
+}
+nav ul{
+position:absolute;
+top:100px;
+}
+nav ul li{
+padding:25px 40px;
+color:#2B4C8C;
+width:320px;
+margin-left:50px;
+opacity:0;
+cursor:pointer;
+transition:.4s;
+}
+nav ul li:hover {animation: hover .6s;}
+@keyframes hover{
+50% {transform:translateX(20px) scale(1.1);}
+}
+nav ul li i{font-size:24px;}
+nav ul li a{
+position:absolute;
+font-size:20px;
+font-weight:500;
+left:120px;
+}
+label span{
+position:absolute;
+color:#2B4C8C;
+border:2px solid #2B4C8C;
+width:30px;
+height:30px;
+top:20px;
+left:20px;
+border-radius:50%;
+padding:8px;
+text-align:center;
+font-size:30px;
+cursor:pointer;
+transition:.4s;
+}
+label span:hover{
+color:#fff;
+background:#2B4C8C;
+}
+input{
+display:none;
+}
+input:checked~label span{
+opacity:0;
+pointer-events:none;
+}
+input:checked~nav{
+left:0;
+}
+input:checked~nav ul li{
+margin-left:0;
+opacity:1;
+}
+input:checked~nav ul li:nth-child(1){transition-delay:0.2s;}
+input:checked~nav ul li:nth-child(2){transition-delay:0.4s;}
+input:checked~nav ul li:nth-child(3){transition-delay:0.6s;}
+input:checked~nav ul li:nth-child(4){transition-delay:0.8s;}
+input:checked ~ nav ul li:nth-child(5){transition-delay:1s;}
+</style>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<body>
+<input type="checkbox" id="close">
+<label for="close">
+<span class="fas fa-bars"></span>
+</label>
+<nav>
+<a class="brand">Brand</a>
+<label class="fas fa-times" for="close"></label>
+<ul>
+<li><i class="fas fa-home"></i><a>Home</a></li>
+<li><i class="fas fa-user-circle"></i><a>Account</a></li>
+<li><i class="fas fa-bell"></i><a>Message</a></li>
+<li><i class="fas fa-laptop"></i><a>Coding</a></li>
+<li><i class="fas fa-pen"></i><a>Editors</a></li>
+</ul>
+</nav>
+</body>
+</html>
